@@ -28,6 +28,13 @@ The OpenAI API key can be provided in one of the following two ways:
    an executable that returns the API key via stdout.
 1. Setting it via an environment variable called `$OPENAI_API_KEY`.
 
+- Custom OpenAI API host
+
+In some countries, it is too hard to accessing OpenAI, setup your custom API host following this way:
+
+1. Setting it via an environment variable called `$OPENAI_API_HOST`.
+
+
 ```lua
 -- Packer
 use({

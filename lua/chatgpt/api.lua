@@ -4,10 +4,12 @@ local logger = require("chatgpt.common.logger")
 
 local Api = {}
 
+-- API Host please no http or https
+Api.OPENAI_API_HOST = os.getenv("OPENAI_API_HOST") or "api.openai.com"
 -- API URL
-Api.COMPLETIONS_URL = "https://api.openai.com/v1/completions"
-Api.CHAT_COMPLETIONS_URL = "https://api.openai.com/v1/chat/completions"
-Api.EDITS_URL = "https://api.openai.com/v1/edits"
+Api.COMPLETIONS_URL = "https://" .. Api.OPENAI_API_HOST .. "/v1/completions"
+Api.CHAT_COMPLETIONS_URL = "https://" .. Api.OPENAI_API_HOST .. "/v1/chat/completions"
+Api.EDITS_URL = "https://" .. Api.OPENAI_API_HOST .. "/v1/edits"
 
 function Api.completions(custom_params, cb)
   local params = vim.tbl_extend("keep", custom_params, Config.options.openai_params)
